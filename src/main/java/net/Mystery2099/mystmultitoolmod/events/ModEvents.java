@@ -1,7 +1,5 @@
 package net.Mystery2099.mystmultitoolmod.events;
 
-
-import net.Mystery2099.mystmultitoolmod.MystMultiToolMod;
 import net.Mystery2099.mystmultitoolmod.config.keys.KeyBinds;
 import net.Mystery2099.mystmultitoolmod.item.ModItems;
 import net.Mystery2099.mystmultitoolmod.item.custom.MultiToolItem;

@@ -3,7 +3,6 @@ package net.Mystery2099.mystmultitoolmod.config.keys;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraftforge.client.ClientRegistry;
-import net.minecraftforge.client.settings.KeyModifier;
 
 public class KeyBinds {
     public static final String CATEGORY_MULTITOOLS = "key.categories.mystmultitoolmod";

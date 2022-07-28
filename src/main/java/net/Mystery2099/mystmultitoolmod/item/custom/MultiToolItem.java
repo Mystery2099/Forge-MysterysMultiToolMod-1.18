@@ -48,13 +48,15 @@ public class MultiToolItem extends MultiToolAbstractItem {
         BlockPos blockPos = pContext.getClickedPos();
         Player player = pContext.getPlayer();
         BlockState blockState = level.getBlockState(blockPos);
+        assert player != null;
         ItemStack thisStack = player.getItemInHand(InteractionHand.MAIN_HAND);
         addConfigInfoNbt(thisStack);
-        if (thisStack.hasTag() && thisStack.getTag().getString(MOD_ID+".modelChangesWhen").contains("RIGHT_CLICKS")) {
+        if (thisStack.hasTag() && thisStack.getTag().getBoolean(MOD_ID+".onRightClick")) {
             String mode;
             mode = blockState.is(BlockTags.MINEABLE_WITH_AXE) && checkStackControls(thisStack, "stripping") ? "Axe" :
-                    blockState.is(BlockTags.MINEABLE_WITH_SHOVEL) && checkStackControls(thisStack, "tilling") ? "Hoe" :
-                            blockState.is(BlockTags.MINEABLE_WITH_SHOVEL) && checkStackControls(thisStack, "flattening") ? "Shovel" : "Default";
+                    (blockState.is(BlockTags.MINEABLE_WITH_SHOVEL) || blockState.is(BlockTags.MINEABLE_WITH_HOE)) && checkStackControls(thisStack, "tilling") ? "Hoe" :
+                            blockState.is(BlockTags.MINEABLE_WITH_SHOVEL) && checkStackControls(thisStack, "flattening") ? "Shovel" :
+                                    blockState.is(BlockTags.MINEABLE_WITH_PICKAXE) ? "Pickaxe" : "Default";
             addToolModeNbt(thisStack, mode);
         }
         //Axe functionality
@@ -145,7 +147,7 @@ public class MultiToolItem extends MultiToolAbstractItem {
         ItemStack stackInHand = event.getItemStack();
         if (!event.getWorld().isClientSide && event.getUseItem() != Event.Result.DENY &&
                 !event.getItemStack().isEmpty() && event.getItemStack().getItem() == this &&
-                (stackInHand.getTag().getString(MOD_ID+".modelChangesWhen").contains("PLAYER_HITS"))) {
+                stackInHand.getTag().getBoolean(MOD_ID+".onLeftClick")) {
             if (blockState.is(BlockTags.MINEABLE_WITH_SHOVEL)) addToolModeNbt(stackInHand, "Shovel");
             else if (blockState.is(BlockTags.MINEABLE_WITH_PICKAXE)) addToolModeNbt(stackInHand, "Pickaxe");
             else if (blockState.is(BlockTags.MINEABLE_WITH_AXE)) addToolModeNbt(stackInHand, "Axe");
@@ -190,7 +192,8 @@ public class MultiToolItem extends MultiToolAbstractItem {
         itemInHand.getOrCreateTag().putString("mystmultitoolmod.stripping", "Stripping: "+ MystMultiToolModClientConfig.STRIPPING.get().toString());
         itemInHand.getOrCreateTag().putString("mystmultitoolmod.tilling", "Tilling: "+ MystMultiToolModClientConfig.TILLING.get().toString());
         itemInHand.getOrCreateTag().putString("mystmultitoolmod.flattening", "Flattening: "+ MystMultiToolModClientConfig.FLATTENING.get().toString());
-        itemInHand.getOrCreateTag().putString(MOD_ID+".modelChangesWhen", "Model Changes " + MystMultiToolModClientConfig.CHANGE_TOOL_MODEL.get().toString());
+        itemInHand.getOrCreateTag().putBoolean(MOD_ID+".onRightClick", MystMultiToolModClientConfig.CHANGE_MODEL_WHEN_USING_MULTITOOL_ON_A_BLOCK.get());
+        itemInHand.getOrCreateTag().putBoolean(MOD_ID+".onLeftClick", MystMultiToolModClientConfig.CHANGE_MODEL_ON_HITTING_A_BLOCK_WITH_MULTITOOL.get());
     }
     public static boolean checkStackToolMode(ItemStack stack, String mode) {
         return stack.hasTag() && stack.getTag().getString("mystmultitoolmod.toolMode").contains(mode);

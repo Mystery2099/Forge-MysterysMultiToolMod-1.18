@@ -1,0 +1,13 @@
+{
+  "item.mystmultitoolmod.wooden_multi_tool": "Wooden MultiTool",
+  "item.mystmultitoolmod.stone_multi_tool": "Stone MultiTool",
+  "item.mystmultitoolmod.golden_multi_tool": "Golden MultiTool",
+  "item.mystmultitoolmod.iron_multi_tool": "Iron MultiTool",
+  "item.mystmultitoolmod.diamond_multi_tool": "Diamond MultiTool",
+  "item.mystmultitoolmod.netherite_multi_tool": "Netherite MultiTool",
+  "key.categories.mystmultitoolmod": "Mystery's MultiTool Mod",
+  "key.mystmultitoolmod.stripping": "MultiTool Stripping (Press this key while right-clicking)",
+  "key.mystmultitoolmod.tilling": "MultiTool Tilling (Press this key while right-clicking)",
+  "key.mystmultitoolmod.flattening": "MultiTool Flattening (Press this key while right-clicking)",
+  "key.mystmultitoolmod.reset": "Reset Tool Mode to Default"
+}

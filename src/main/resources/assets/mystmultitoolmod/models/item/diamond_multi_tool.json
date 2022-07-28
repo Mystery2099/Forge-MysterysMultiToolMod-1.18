@@ -1,0 +1,32 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0":"mystmultitoolmod:item/diamond_hammer"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "mystmultitoolmod:digging": 1
+      },
+      "model": "minecraft:item/diamond_shovel"
+    },
+    {
+      "predicate": {
+        "mystmultitoolmod:mining": 1
+      },
+      "model": "minecraft:item/diamond_pickaxe"
+    },
+    {
+      "predicate": {
+        "mystmultitoolmod:chopping": 1
+      },
+      "model": "minecraft:item/diamond_axe"
+    },
+    {
+      "predicate": {
+        "mystmultitoolmod:hoeing": 1
+      },
+      "model": "minecraft:item/diamond_hoe"
+    }
+  ]
+}

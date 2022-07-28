@@ -1,0 +1,32 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0":"mystmultitoolmod:item/stone_hammer"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "mystmultitoolmod:digging": 1
+      },
+      "model": "minecraft:item/stone_shovel"
+    },
+    {
+      "predicate": {
+        "mystmultitoolmod:mining": 1
+      },
+      "model": "minecraft:item/stone_pickaxe"
+    },
+    {
+      "predicate": {
+        "mystmultitoolmod:chopping": 1
+      },
+      "model": "minecraft:item/stone_axe"
+    },
+    {
+      "predicate": {
+        "mystmultitoolmod:hoeing": 1
+      },
+      "model": "minecraft:item/stone_hoe"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "mystmultitoolmod:wooden_multi_tool",
+    "mystmultitoolmod:stone_multi_tool",
+    "mystmultitoolmod:golden_multi_tool",
+    "mystmultitoolmod:iron_multi_tool",
+    "mystmultitoolmod:diamond_multi_tool",
+    "mystmultitoolmod:netherite_multi_tool"
+  ]
+}

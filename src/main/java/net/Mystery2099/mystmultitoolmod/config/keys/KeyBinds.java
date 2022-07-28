@@ -1,6 +1,7 @@
 package net.Mystery2099.mystmultitoolmod.config.keys;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import net.Mystery2099.mystmultitoolmod.MystMultiToolMod;
 import net.minecraft.client.KeyMapping;
 import net.minecraftforge.client.ClientRegistry;
 
@@ -12,7 +13,7 @@ public class KeyBinds {
 
 
     private static KeyMapping createKeyMapping(String name, InputConstants.Type keyType, int keyCode) {
-        return new KeyMapping("key.mystmultitoolmod."+name, IsHoldingMultiToolKeyConflictContext.INSTANCE, keyType, keyCode, KeyBinds.CATEGORY_MULTITOOLS);
+        return new KeyMapping("key."+MystMultiToolMod.MOD_ID+"."+name, IsHoldingMultiToolKeyConflictContext.INSTANCE, keyType, keyCode, KeyBinds.CATEGORY_MULTITOOLS);
     }
 
     public static void registerKeys() {

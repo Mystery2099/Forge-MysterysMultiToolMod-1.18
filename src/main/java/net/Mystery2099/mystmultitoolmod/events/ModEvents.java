@@ -30,15 +30,17 @@ public class ModEvents {
                 if (KeyBinds.RESET_KEY.consumeClick() && checkItemInHand(stackInHand)) {
                     MultiToolItem.addToolModeNbt(stackInHand, "Default");
                 } else if (KeyBinds.NEXT_MODE_KEY.consumeClick() && checkItemInHand(stackInHand)) {
+                    assert stackInHand.getTag() != null;
                     MultiToolItem.addToolModeNbt(stackInHand, stackInHand.getTag().getString(toolMode).contains("Default") || !stackInHand.hasTag() ? "Shovel" :
                             stackInHand.getTag().getString(toolMode).contains("Shovel") ? "Pickaxe" :
                                     stackInHand.getTag().getString(toolMode).contains("Pickaxe") ? "Axe" :
                                             stackInHand.getTag().getString(toolMode).contains("Axe") ? "Hoe" : "Default");
                 } else if (KeyBinds.PREVIOUS_MODE_KEY.consumeClick() && checkItemInHand(stackInHand)) {
+                    assert stackInHand.getTag() != null;
                     MultiToolItem.addToolModeNbt(stackInHand, stackInHand.getTag().getString(toolMode).contains("Default") || !stackInHand.hasTag() ? "Hoe" :
-                                                stackInHand.getTag().getString(toolMode).contains("Hoe") ? "Axe" ://MultiToolItem itemInHand = getItemInHandAsMultiTool();
-                                                        stackInHand.getTag().getString(toolMode).contains("Axe") ? "Pickaxe" :
-                                                                stackInHand.getTag().getString(toolMode).contains("Pickaxe") ? "Shovel" : "Default");
+                            stackInHand.getTag().getString(toolMode).contains("Hoe") ? "Axe" :
+                                    stackInHand.getTag().getString(toolMode).contains("Axe") ? "Pickaxe" :
+                                            stackInHand.getTag().getString(toolMode).contains("Pickaxe") ? "Shovel" : "Default");
                 }
             }
         }
